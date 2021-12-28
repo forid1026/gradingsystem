@@ -15,7 +15,12 @@
         padding: 30px;
         box-shadow: 10px 3px 10px rgb(0 0 0 / 0.2);
     }
-    
+    @media screen and (max-width: 600px) {
+        .result-section  {
+            width: 100%;
+        }
+    }
+        
     </style>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
