@@ -33,19 +33,19 @@
        
         <div class="form-row">
             <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="Name" name="name" require>
+                  <input type="text" class="form-control" placeholder="Name" name="name" required>
             </div>
 
             <div class="form-group col-md-6">
-                    <input type="text" class="form-control" placeholder="Roll" name="roll" require>
+                    <input type="number" class="form-control" placeholder="Roll" name="roll" required>
             </div>
 
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" placeholder="Physics Marks" name="subjectOne" require>
+                <input type="number" class="form-control" placeholder="Physics Marks" name="subjectOne" required>
             </div>
 
             <div class="form-group col-md-6">
-                 <input type="text" class="form-control" placeholder="Mathematics Marks" name="subjectTwo" require>
+                 <input type="number" class="form-control" placeholder="Mathematics Marks" name="subjectTwo" required>
             </div>
     <br><br>
         <input type="submit" class="btn btn-primary" value="Submit">

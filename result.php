@@ -45,10 +45,15 @@ if(!empty($_POST)){
     if(($subjectOne > 100) || ($subjectTwo > 100) || empty($subjectOne) || empty($subjectTwo)){
         echo '<h3 class="text-danger text-center mt-5">Please Enter valid marks which is less or equal to 100.</h3>';
         echo '<br>';
-        echo '<a class="m-auto btn btn-info" href="http://localhost/gradingSystem/">Try Agian</a>';
+        echo '<a class="m-auto btn btn-info" href="http://localhost/gradingSystem/">Try Again</a>';
         exit;
     }
-        else{
+    elseif($subjectOne < 40 || $subjectTwo < 40){
+        echo '<h3 class="text-danger text-center mt-5 mb-5">Failed! Better Luck Next Time!</h3>';
+        echo '<a class="m-auto btn btn-info" href="http://localhost/gradingSystem/">Try Again</a>';
+        exit;
+    }
+     else{
             $total = $subjectOne + $subjectTwo;
             $avg_marks = $total / 2;
     }
@@ -59,31 +64,31 @@ if(!empty($_POST)){
          <h5> Roll: &nbsp; &nbsp;  <?php echo $roll ?></h5>
         <h5> Grade: <?php 
             if( $avg_marks <= 100 && $avg_marks >= 80){
-                        echo 'You got A+';
+                        echo 'You Got A+';
                     }
                     elseif($avg_marks < 80 && $avg_marks >=75){
-                        echo 'You got A';
+                        echo 'You Got A';
                     }
                     elseif($avg_marks < 75 && $avg_marks >=70){
-                        echo 'You got A';
+                        echo 'You Got A';
                     }
                     elseif($avg_marks < 70 && $avg_marks >=65){
-                        echo 'You got A-';
+                        echo 'You Got A-';
                     }
                     elseif($avg_marks < 65 && $avg_marks >=60){
-                        echo 'You got B+';
+                        echo 'You Got B+';
                     }
                     elseif($avg_marks < 60 && $avg_marks >=55){
-                        echo 'You got B';
+                        echo 'You Got B';
                     }
                     elseif($avg_marks < 55 && $avg_marks >=50){
-                        echo 'You got B-';
+                        echo 'You Got B-';
                     }
                     elseif($avg_marks < 50 && $avg_marks >=45){
-                        echo 'You got C+';
+                        echo 'You Got C+';
                     }
                     elseif($avg_marks < 45 && $avg_marks >=40){
-                        echo 'You got C';
+                        echo 'You Got C';
                     }
                     elseif($avg_marks < 40 && $avg_marks >0){
                         echo 'Better Luck Next Time!';
@@ -93,7 +98,8 @@ if(!empty($_POST)){
                     }
         
         ?></h5>
-        <h5 id="marks">Average Marks: <?php echo $avg_marks?></h5>
+        <h5 class="mb-3">Average Marks: <?php echo $avg_marks?></h5>
+        <a class=" btn btn-info" href="http://localhost/gradingSystem/">Try Again</a>
     </div>
 
 </body>
