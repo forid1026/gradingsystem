@@ -1,20 +1,12 @@
 <!DOCTYPE html>
-<?php 
-$name = $roll = $subjectOne = $subjectTwo =  '';
-if(!empty($_POST)){
-    $name = $_POST["name"];
-    $roll = $_POST["roll"];
-    $subjectOne = $_POST["subjectOne"];
-    $subjectTwo = $_POST["subjectTwo"];
-}
-
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade System</title>
+    <!--##### Bootstrap link   ####-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         h3{
             width: 50%;
@@ -24,7 +16,6 @@ if(!empty($_POST)){
         width: 50%;
         margin: 0 auto;
         border: 1px solid #ced4da;
-        /* padding: 30px; */
         background: #fff;
         box-shadow: 10px 3px 10px rgb(0 0 0 / 0.2);
         }
@@ -32,12 +23,9 @@ if(!empty($_POST)){
         @media screen and (max-width: 600px) {
             form.user-input {
             width: 100%;
+            }
         }
-}
-        
-    /* #marks{display: none;} */
         </style>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
     <h3 class='mt-5'>Grading System</h3>
@@ -45,19 +33,19 @@ if(!empty($_POST)){
        
         <div class="form-row">
             <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="Name" name="name">
+                  <input type="text" class="form-control" placeholder="Name" name="name" require>
             </div>
 
             <div class="form-group col-md-6">
-                    <input type="text" class="form-control" placeholder="Roll" name="roll">
+                    <input type="text" class="form-control" placeholder="Roll" name="roll" require>
             </div>
 
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" placeholder="Physics Marks" name="subjectOne">
+                <input type="text" class="form-control" placeholder="Physics Marks" name="subjectOne" require>
             </div>
 
             <div class="form-group col-md-6">
-                 <input type="text" class="form-control" placeholder="Mathematics Marks" name="subjectTwo">
+                 <input type="text" class="form-control" placeholder="Mathematics Marks" name="subjectTwo" require>
             </div>
     <br><br>
         <input type="submit" class="btn btn-primary" value="Submit">

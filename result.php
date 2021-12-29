@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--### Bootstrap link ###-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
 
     .result-section {
@@ -15,25 +17,46 @@
         padding: 30px;
         box-shadow: 10px 3px 10px rgb(0 0 0 / 0.2);
     }
+    a.m-auto.btn.btn-info {
+    width: 120px;
+    left: 50%;
+    position: absolute;
+    right: 50%;
+    transform: translate(-50%, -50%);
+}
     @media screen and (max-width: 600px) {
         .result-section  {
             width: 100%;
         }
     }
-        
     </style>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 
-<?php  
-    $total = $_POST["subjectOne"] + $_POST["subjectTwo"];
-    $avg_marks = $total / 2;
+<?php 
+$name = $roll = $subjectOne = $subjectTwo =  '';
+if(!empty($_POST)){
+    $name = $_POST["name"];
+    $roll = $_POST["roll"];
+    $subjectOne = $_POST["subjectOne"];
+    $subjectTwo = $_POST["subjectTwo"];
+}
+    //marks validation 
+    if(($subjectOne > 100) || ($subjectTwo > 100) || empty($subjectOne) || empty($subjectTwo)){
+        echo '<h3 class="text-danger text-center mt-5">Please Enter valid marks which is less or equal to 100.</h3>';
+        echo '<br>';
+        echo '<a class="m-auto btn btn-info" href="http://localhost/gradingSystem/">Try Agian</a>';
+        exit;
+    }
+        else{
+            $total = $subjectOne + $subjectTwo;
+            $avg_marks = $total / 2;
+    }
 ?>
 
      <div class="result-section shadow-lg p-5  mb-5 mt-5 bg-body rounded" id="userOutput">
-         <h5> Name: <?php echo $_POST["name"] ?></h5>
-         <h5> Roll: &nbsp; &nbsp;  <?php echo $_POST["roll"] ?></h5>
+         <h5> Name: <?php echo $name?></h5>
+         <h5> Roll: &nbsp; &nbsp;  <?php echo $roll ?></h5>
         <h5> Grade: <?php 
             if( $avg_marks <= 100 && $avg_marks >= 80){
                         echo 'You got A+';
